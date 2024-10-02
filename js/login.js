@@ -1,5 +1,8 @@
+// Get input fields for email and password
 var mail = document.getElementById('email');
 var pass = document.getElementById('password');
+
+// Retrieve the users' data from localStorage
 var storData = localStorage.getItem('users');
 var usersArrayData = JSON.parse(storData) || []; // Ensure it's an empty array if null
 
@@ -22,25 +25,26 @@ function login() {
     }
     // If validation passes, check user credentials
     else {
+        // Find the user in the stored data
         var user = usersArrayData.find(function (user) {
             return user.email === mail.value && user.password === pass.value;
         });
 
+        // If user is found, login is successful
         if (user) {
-            console.log(user.email);
-            console.log(user.password);
-            // Set current user in localStorage
+            // Store the current user in localStorage
             localStorage.setItem('currentUser', JSON.stringify({ name: user.name, email: user.email }));
 
-            // Redirect to home page
+            // Redirect to home page after successful login
             window.location.href = 'pages/home.html';
         } else {
-            alert('account not availabe? create your account.');
+            // If user credentials don't match, show an error message
+            alert('Account not found. Please create an account.');
         }
     }
 }
 
-// Email validation function
+// Email validation function using regex
 function validateEmail(email) {
     var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);

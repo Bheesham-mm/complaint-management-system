@@ -1,11 +1,21 @@
-var storeData = localStorage.getItem('users');
-var usersArray = JSON.parse(storeData);
-for (var prop in usersArray) {
-    document.getElementById('username').innerHTML = usersArray[prop].name || 'Guest';
-    document.getElementById('getUserName').innerHTML = usersArray[prop].name || 'Guest';
-    document.getElementById('email').innerHTML = usersArray[prop].email || 'Guest@gmail.com';
-    document.getElementById('pass').innerHTML = usersArray[prop].password || 'Guest';
-    document.getElementById('caste').innerHTML = usersArray[prop].caste || 'No caste';
-    document.getElementById('locat').innerHTML = usersArray[prop].location || 'No Location';
-    document.getElementById('gender').innerHTML = usersArray[prop].gender || 'Mail';
-}
+// Get current user data from LocalStorage
+var currentUser = JSON.parse(localStorage.getItem('currentUser')) || {};
+
+// Fallback for when user data is missing
+var defaultUser = {
+    name: 'Guest',
+    email: 'guest@gmail.com',
+    password: '******',
+    caste: 'No caste',
+    location: 'No Location',
+    gender: 'Not specified'
+};
+
+// Use currentUser data or fallback to default values
+document.getElementById('username').innerHTML = currentUser.name || defaultUser.name;
+document.getElementById('getUserName').innerHTML = currentUser.name || defaultUser.name;
+document.getElementById('email').innerHTML = currentUser.email || defaultUser.email;
+document.getElementById('pass').innerHTML = currentUser.password || defaultUser.password;
+document.getElementById('caste').innerHTML = currentUser.caste || defaultUser.caste;
+document.getElementById('locat').innerHTML = currentUser.location || defaultUser.location;
+document.getElementById('gender').innerHTML = currentUser.gender || defaultUser.gender;
