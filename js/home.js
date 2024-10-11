@@ -37,7 +37,7 @@ if (setComplaints.length > 0) {
         imageDiv.appendChild(img);
 
         var descriptionDiv = document.createElement('div');
-        descriptionDiv.classList.add('col-md-10', 'col-12');
+        descriptionDiv.classList.add('col-md-10', ' col-12');
 
         var descriptionText = document.createElement('p');
         descriptionText.textContent = complaint.desc;
