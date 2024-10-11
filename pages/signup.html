@@ -9,6 +9,13 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="../css/my-login.css">
+	<script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+
+	<script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+	<script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+	
+	
+	<script defer src="../init-firebase.js"></script>
 </head>
 
 <body class="my-login-page">
@@ -59,6 +66,8 @@
 									Register
 								</button>
 							</div>
+							<p class="error my-2" id="firebaseErr"></p>
+
 							<div class="mt-4 text-center">
 								Already have an account? <a href="../index.html">Login</a>
 							</div>
