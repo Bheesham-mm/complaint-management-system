@@ -60,13 +60,8 @@ if (setComplaints.length > 0) {
     img.alt = "";
     imageDiv.appendChild(img);
 
-<<<<<<< HEAD
-        var descriptionDiv = document.createElement('div');
-        descriptionDiv.classList.add('col-md-10', ' col-12');
-=======
     var descriptionDiv = document.createElement("div");
     descriptionDiv.classList.add("col-md-10", "col-12");
->>>>>>> 636fa1098287f4163b938e395c2537998bdebc27
 
     var descriptionText = document.createElement("p");
     descriptionText.textContent = complaint.desc;
