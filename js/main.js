@@ -31,13 +31,13 @@ if (currentUser && currentUser.name) {
 }
 
 // Logout functionality
-function logout() {
-    localStorage.removeItem('currentUser'); // Only remove current user, not all users
-    window.location.href = '../index.html'; // Redirect to login page
-}
+// function logout() {
+//     localStorage.removeItem('currentUser'); // Only remove current user, not all users
+//     window.location.href = '../index.html'; // Redirect to login page
+// }
 
 // Attach logout event if the button exists
-var logoutBtn = document.getElementById('logoutButton');
-if (logoutBtn) {
-    logoutBtn.addEventListener('click', logout);
-}
+// var logoutBtn = document.getElementById('logoutButton');
+// if (logoutBtn) {
+//     logoutBtn.addEventListener('click', logout);
+// }
