@@ -1,4 +1,21 @@
 // Retrieve complaints from LocalStorage
+
+var userdata;
+const getCurrentUser = () => {
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/v8/firebase.User
+      var uid = user.uid;
+      userdata = user;
+      // ...
+    } else {
+      // User is signed out
+      // ...
+    }
+  });
+};
+
 var getComplaints = localStorage.getItem("complaints");
 var setComplaints = JSON.parse(getComplaints) || [];
 
@@ -149,16 +166,16 @@ if (setComplaints.length > 0) {
 }
 
 const logoutUser = () => {
-    firebase
-      .auth()
-      .signOut()
-      .then(() => {
-        console.log("Sign-out successful.");
-        window.location.href = "../index.html";
-        // Sign-out successful.
-      })
-      .catch((error) => {
-        console.log(error);
-        // An error happened.
-      });
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      console.log("Sign-out successful.");
+      window.location.href = "../index.html";
+      // Sign-out successful.
+    })
+    .catch((error) => {
+      console.log(error);
+      // An error happened.
+    });
 };
